@@ -1,5 +1,5 @@
 export default async function HomePage() {
-    const res = await fetch('http://localhost:3000/api/products');
+    const res = await fetch("/api/products", { cache: "no-store" });
     const products = await res.json();
 
     return (

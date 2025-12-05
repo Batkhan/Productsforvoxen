@@ -3,7 +3,7 @@ import AddToCartButton from "../../components/AddToCartButton";
 export default async function ProductPage({ params }) {
   const { id } = await params;
 
-  const res = await fetch(`http://localhost:3000/api/products/${id}`);
+  const res = await fetch(`/api/products/${id}`, { cache: "no-store" });
   const product = await res.json();
 
   return (
