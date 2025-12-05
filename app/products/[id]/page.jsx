@@ -1,9 +1,14 @@
 import AddToCartButton from "../../components/AddToCartButton";
+import { getBaseUrl } from "../../../lib/api";
+
+export const dynamic = "force-dynamic";
 
 export default async function ProductPage({ params }) {
   const { id } = await params;
-
-  const res = await fetch(`/api/products/${id}`, { cache: "no-store" });
+  const base = getBaseUrl();
+   const res = await fetch(`${base}/api/products/${id}`, {
+    cache: "no-store",
+  });
   const product = await res.json();
 
   return (

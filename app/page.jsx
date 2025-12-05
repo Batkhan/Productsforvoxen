@@ -1,5 +1,9 @@
+import { getBaseUrl } from "../lib/api.js";
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
-    const res = await fetch("/api/products", { cache: "no-store" });
+    const base = getBaseUrl();
+    const res = await fetch(`${base}/api/products`, { cache: "no-store" });
     const products = await res.json();
 
     return (
